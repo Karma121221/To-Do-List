@@ -1,0 +1,303 @@
+.App {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 20px;
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+}
+
+h1 {
+  color: #1a1a1a;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.input-container {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], input[type="date"] {
+  padding: 14px 20px;
+  border: 2px solid #eef2f7;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-button {
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  color: white;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  transform: translateY(0);
+  transition: all 0.2s ease;
+}
+
+.add-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 200px; /* Add this line to maintain layout when empty */
+}
+
+.task-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.1);
+}
+
+.task-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task-text {
+  font-size: 16px;
+}
+
+.due-date {
+  font-size: 12px;
+  color: #666;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.task-actions button {
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  transform: translateY(0);
+  transition: all 0.2s ease;
+}
+
+.task-actions button:first-child {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.task-actions button:last-child {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.task-actions button:hover {
+  transform: translateY(-2px);
+  filter: brightness(110%);
+}
+
+.completed {
+  opacity: 0.7;
+}
+
+.completed .task-text {
+  text-decoration: none;
+  color: #a0aec0;
+  position: relative;
+}
+
+.completed .task-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: #a0aec0;
+  animation: strikethrough 0.3s ease-out 0s forwards;
+}
+
+.stats {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 2px solid #3498db;
+  position: relative;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.filter-container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.8rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 2rem;
+}
+
+.filter-button {
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.filter-button.active {
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.date-group {
+  margin-bottom: 2rem;
+}
+
+.date-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.date-header:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.task-count {
+  margin-left: auto;
+  font-size: 0.8em;
+  color: #666;
+  font-weight: normal;
+}
+
+.date-header[data-group="Overdue"] {
+  border-left-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.date-header[data-group="Today"] {
+  border-left-color: #3498db;
+  color: #3498db;
+}
+
+.date-header[data-group="Tomorrow"] {
+  border-left-color: #2ecc71;
+  color: #2ecc71;
+}
+
+.date-header[data-group="This Week"] {
+  border-left-color: #f1c40f;
+  color: #f1c40f;
+}
+
+.date-header[data-group="Next Week"] {
+  border-left-color: #9b59b6;
+  color: #9b59b6;
+}
+
+.date-header[data-group="Later"],
+.date-header[data-group="No Due Date"] {
+  border-left-color: #95a5a6;
+  color: #95a5a6;
+}
+
+.date-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+  max-height: 1000px;
+}
+
+.date-tasks.collapsed {
+  max-height: 0;
+  margin: 0;
+}
+
+@keyframes strikethrough {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
